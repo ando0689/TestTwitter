@@ -19,12 +19,12 @@ public class TwitterStream implements Runnable, Constants{
 
     private ArrayList<JSONObject> twittsArray;
     
-    private String trackWord = "twitter";
+    //private String trackWord = "twitter";
     private int limit = 500;
     
-    public TwitterStream(String trackWord, int limit){
+    public TwitterStream(int limit){
     	twittsArray = new ArrayList<JSONObject>();
-    	this.trackWord = trackWord;
+    	//this.trackWord = trackWord;
     	this.limit = limit;
     }
 
@@ -47,7 +47,7 @@ public class TwitterStream implements Runnable, Constants{
             request.addHeader("host", "stream.twitter.com");
             request.setConnectionKeepAlive(true);
             request.addHeader("user-agent", "Twitter Stream Reader");
-            request.addBodyParameter("track", trackWord);
+           // request.addBodyParameter("track", trackWord);
             service.signRequest(accessToken, request);
             Response response = request.send();
             
